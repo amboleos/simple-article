@@ -10,6 +10,7 @@ from taggit.managers import TaggableManager
 
 
 class Article(models.Model):
+    user= models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.SET_NULL, null=True)
     """Simple article model with basic fields"""
     title = models.CharField(_('Title'), max_length=255)
     slug = models.SlugField(_('Slug'), max_length=255, unique=True, blank=True)
